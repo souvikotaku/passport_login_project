@@ -2,12 +2,17 @@ const router = require('express').Router();
 
 //login
 router.get('/login',(req,res)=>{
-    res.send('login')
+    res.render('login')
 })
+
+//partials
+// <%- include ("./partials/messages"); %>
+
+
 
 //register
 router.get('/register',(req,res)=>{
-    res.send('register')
+    res.render('register')
 })
 
 module.exports = router;
