@@ -7,7 +7,6 @@ const app = express();
 //dotenv
 require('dotenv').config();
 
-
 //middlewares
 app.use('/uploads',express.static('uploads'));
 app.use(cors());
@@ -23,11 +22,13 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
+//routes
+app.use('/',require('./routes/index'))
 
-
+//port
 const PORT = process.env.PORT || 8080
 
 app.listen(PORT, function(){
-  console.log('server has started')
+  console.log(`server has started on ${PORT}`)
 })
 
