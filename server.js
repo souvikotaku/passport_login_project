@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
 
+
 //dotenv
 require('dotenv').config();
 
@@ -24,6 +25,7 @@ connection.once('open', () => {
 
 //routes
 app.use('/',require('./routes/index'))
+app.use('/users',require('./routes/users'))
 
 //port
 const PORT = process.env.PORT || 8080
