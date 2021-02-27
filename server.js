@@ -21,12 +21,17 @@ app.set('view engine','ejs');
 // mongo uri important boilerplate
 //ATLAS_URI is the uri that i got from my mongo atlas, written on the env file
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true }
-);
-const connection = mongoose.connection;
-connection.once('open', () => {
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true })
+.then(()=>{
   console.log("MongoDB database connection established successfully");
 })
+.catch(error=>{
+  console.log(error);
+})
+// const connection = mongoose.connection;
+// connection.once('open', () => {
+//   console.log("MongoDB database connection established successfully");
+// })
 
 //routes
 app.use('/',require('./routes/index'));
