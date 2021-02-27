@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
+const expressLayouts = require('express-ejs-layouts');
 
 
 //dotenv
@@ -12,6 +13,10 @@ require('dotenv').config();
 app.use('/uploads',express.static('uploads'));
 app.use(cors());
 app.use(express.json());
+
+//EJS
+app.use(expressLayouts);
+app.set('view engine','ejs');
 
 // mongo uri important boilerplate
 //ATLAS_URI is the uri that i got from my mongo atlas, written on the env file
