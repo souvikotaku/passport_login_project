@@ -24,8 +24,8 @@ connection.once('open', () => {
 })
 
 //routes
-app.use('/',require('./routes/index'))
-app.use('/users',require('./routes/users'))
+app.use('/',require('./routes/index'));
+app.use('/users',require('./routes/users'));
 
 //port
 const PORT = process.env.PORT || 8080
