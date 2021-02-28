@@ -15,4 +15,11 @@ router.get('/register',(req,res)=>{
     res.render('register')
 })
 
+
+//register handle
+router.post('/register',(req,res)=>{
+  console.log(req.body)
+  res.send('hello')
+})
+
 module.exports = router;
