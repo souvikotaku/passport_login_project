@@ -6,7 +6,10 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 
+// Passport Config
+require('./config/passport')(passport);
 
 //dotenv
 require('dotenv').config();
@@ -26,6 +29,10 @@ app.use(
   })
 );
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Connect flash
 app.use(flash());
 
@@ -40,6 +47,8 @@ app.use(function(req, res, next) {
 //EJS
 app.use(expressLayouts);
 app.set('view engine','ejs');
+
+
 
 // mongo uri important boilerplate
 //ATLAS_URI is the uri that i got from my mongo atlas, written on the env file
